@@ -48,3 +48,15 @@ steps:
     publishLocation: 'Container'
   displayName: 'Publish Artifacts'
 
+ 
+- script: npx ng e2e 
+  displayName: 'E2E Test Angular'
+
+- task: PublishTestResults@2
+  displayName: 'Publish Angular E2E test results'
+  condition: succeededOrFailed()
+  inputs:
+    searchFolder: $(System.DefaultWorkingDirectory)/src/ngapp2/e2e/junit
+    testRunTitle: Angular_E2E
+    testResultsFormat: JUnit
+    testResultsFiles: "**/junit*.xml" 
