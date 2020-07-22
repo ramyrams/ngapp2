@@ -13,16 +13,16 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
-  displayName: 'Setup Environment'
+  displayName: 'Install Node'
 
 - script: npm install
-  displayName: 'Install Dependencies'
+  displayName: 'Install application dependencies'
 
 - script: npx ng build --prod
-  displayName: 'Build'
+  displayName: 'Build the application'
  
 - script: npx ng test --watch=false --codeCoverage=true
-  displayName: 'Tests' 
+  displayName: 'Run unit testing and generate the code covereage' 
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
@@ -30,7 +30,7 @@ steps:
     testResultsFormat: 'JUnit'
     # Make sure you've changed testResultsFiles to the one below 
     testResultsFiles: '**/TESTS-*.xml'
-  displayName: 'Publish Test Results'
+  displayName: 'Publish Unit Test Results'
 
 - task: PublishCodeCoverageResults@1
   condition: succeededOrFailed()
@@ -40,13 +40,13 @@ steps:
   displayName: 'Publish Code Coverage Results'
 
 - script: npx ng lint
-  displayName: 'Code Analysis'
+  displayName: 'Perform Code linting'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'dist/ngapp2'
     ArtifactName: 'web-app'
     publishLocation: 'Container'
-  displayName: 'Publish Artifacts'
+  displayName: 'Publish application artifacts'
 
  
 - script: npx ng e2e 
