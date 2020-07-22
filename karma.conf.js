@@ -4,6 +4,8 @@
 const process = require('process');
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
+console.log(process.env.CHROME_BIN)
+
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -24,15 +26,16 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary', 'cobertura'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     singleRun: false,
     restartOnFileChange: true,
     reporters: ['progress', 'kjhtml', 'junit'],
-    browsers: ['ChromeHeadless']
+    junitReporter: {
+      outputDir: '../junit'
+    }
   });
 };
