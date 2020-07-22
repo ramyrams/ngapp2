@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="workspace-project App" timestamp="2020-07-22T18:19:46" hostname="localhost" time="1.279" errors="0" tests="1" skipped="0" failures="0">
-  <testcase classname="workspace-project App" name="should display welcome message" time="1.275">
+ <testsuite name="workspace-project App" timestamp="2020-07-22T18:32:30" hostname="localhost" time="1.178" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="workspace-project App" name="should display welcome message" time="1.174">
   </testcase>
  </testsuite>
 </testsuites>
