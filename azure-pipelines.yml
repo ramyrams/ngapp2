@@ -41,7 +41,6 @@ steps:
 
 - script: npx ng lint
   displayName: 'Code Analysis'
-
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'dist/ngapp2'
