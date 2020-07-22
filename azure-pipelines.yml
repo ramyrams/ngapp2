@@ -36,16 +36,15 @@ steps:
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/coverage/ng-azure-devops/cobertura-coverage.xml'
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverage/ngapp2/cobertura-coverage.xml'
   displayName: 'Publish Code Coverage Results'
-
 
 - script: npx ng lint
   displayName: 'Code Analysis'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'dist/ng-azure-devops'
+    PathtoPublish: 'dist/ngapp2'
     ArtifactName: 'web-app'
     publishLocation: 'Container'
   displayName: 'Publish Artifacts'
