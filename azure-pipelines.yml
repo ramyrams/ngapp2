@@ -24,9 +24,9 @@ steps:
 - script: npx ng test --watch=false --codeCoverage=true
   displayName: 'Run unit testing and generate the code covereage' 
 
-- script: $(System.DefaultWorkingDirectory)
+- script: echo $(System.DefaultWorkingDirectory)
 
-- script: $(Build.SourcesDirectory)
+- script: echo $(Build.SourcesDirectory)
 
 
 - script: ls
